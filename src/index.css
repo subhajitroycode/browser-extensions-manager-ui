@@ -24,7 +24,9 @@ body {
   font-size: 16px;
   font-family: var(--font-family-sans);
   background: linear-gradient(180deg, #ebf2fc 0%, #eef8f9 100%);
-  min-height: 100vh;
+  min-height: 95vh;
+  width: 75%;
+  margin: 0 auto;
   transition: background 0.3s ease;
 }
 
