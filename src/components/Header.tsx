@@ -27,7 +27,7 @@ const Header = () => {
       />
       <button
         onClick={toggleDarkMode}
-        className="bg-neutral-100 dark:bg-neutral-700 p-2 rounded-lg"
+        className="bg-neutral-100 dark:bg-neutral-700 p-2 rounded-lg cursor-pointer hover:bg-neutral-300 dark:hover:bg-neutral-600 transition focus:outline-2 focus:outline-offset-2 focus:outline-red-400"
       >
         {darkMode ? (
           <img src="/icon-sun.svg" alt="icon of sun" className="w-4" />
