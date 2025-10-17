@@ -1,3 +1,4 @@
+import Extensions from "./components/Extensions";
 import Header from "./components/Header";
 import Navbar from "./components/Navbar";
 import { BrowserRouter } from "react-router";
@@ -13,6 +14,7 @@ function App() {
           </h1>
           <Navbar />
         </section>
+        <Extensions />
       </main>
     </BrowserRouter>
   );
