@@ -19,20 +19,20 @@ const Header = () => {
   };
 
   return (
-    <header className="flex justify-between items-center p-3 mt-4 bg-neutral-0 dark:bg-neutral-800 rounded-2xl shadow-md">
+    <header className="flex justify-between items-center py-1.5 px-2 md:p-3 mt-4 bg-neutral-0 dark:bg-neutral-800 rounded-md md:rounded-2xl shadow-md">
       <img
         src={darkMode ? "/logo-dark.svg" : "/logo.svg"}
         alt="logo"
-        className="w-32"
+        className="w-44 md:w-32"
       />
       <button
         onClick={toggleDarkMode}
         className="bg-neutral-100 dark:bg-neutral-700 p-2 rounded-lg cursor-pointer hover:bg-neutral-300 dark:hover:bg-neutral-600 transition focus:outline-2 focus:outline-offset-2 focus:outline-red-400"
       >
         {darkMode ? (
-          <img src="/icon-sun.svg" alt="icon of sun" className="w-4" />
+          <img src="/icon-sun.svg" alt="icon of sun" className="w-7 md:w-4" />
         ) : (
-          <img src="/icon-moon.svg" alt="icon of moon" className="w-4" />
+          <img src="/icon-moon.svg" alt="icon of moon" className="w-7 md:w-4" />
         )}
       </button>
     </header>

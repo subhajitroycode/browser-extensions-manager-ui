@@ -35,7 +35,7 @@ const Extensions = () => {
 
   return (
     <section>
-      <div className="grid grid-cols-3 grid-rows-4 gap-2.5 mb-10">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2.5 mb-10">
         {filteredExtensions.map((extension, index) => {
           const originalIndex = extensions.findIndex(
             (ext) => ext.name === extension.name

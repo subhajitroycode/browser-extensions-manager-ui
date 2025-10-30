@@ -34,3 +34,9 @@ body {
 html.dark body {
   background: linear-gradient(180deg, #040918 0%, #091540 100%);
 }
+
+@media (width <= 480px) {
+  body {
+    width: 90%;
+  }
+}

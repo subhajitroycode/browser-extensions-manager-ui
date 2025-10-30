@@ -8,8 +8,8 @@ function App() {
     <BrowserRouter>
       <Header />
       <main>
-        <section className="flex justify-between items-center mt-10 mb-4">
-          <h1 className="text-2xl font-bold text-neutral-800 dark:text-neutral-100">
+        <section className="flex flex-col md:flex-row justify-between gap-5 md:gap-0 items-center mt-10 mb-10 md:mb-6">
+          <h1 className="text-4xl md:text-2xl font-bold text-neutral-800 dark:text-neutral-100">
             Extensions List
           </h1>
           <Navbar />
