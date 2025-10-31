@@ -1,69 +1,111 @@
-# React + TypeScript + Vite
+# Frontend Mentor - Browser Extensions Manager UI Solution
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a solution to the [Browser extensions manager UI challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/browser-extension-manager-ui-yNZnOfsMAp). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
 
-Currently, two official plugins are available:
+## Table of Contents
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- [Frontend Mentor - Browser Extensions Manager UI Solution](#frontend-mentor---browser-extensions-manager-ui-solution)
+  - [Table of Contents](#table-of-contents)
+  - [Overview](#overview)
+    - [The Challenge](#the-challenge)
+    - [Screenshot](#screenshot)
+    - [Links](#links)
+  - [My Process](#my-process)
+    - [Built With](#built-with)
+    - [What I Learned](#what-i-learned)
+    - [Continued Development](#continued-development)
+  - [Author](#author)
 
-## Expanding the ESLint configuration
+## Overview
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### The Challenge
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+Users should be able to:
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+- Toggle extensions between active and inactive states
+- Filter active and inactive extensions
+- Remove extensions from the list
+- Select their color theme (light/dark mode)
+- View the optimal layout for the interface depending on their device's screen size
+- See hover and focus states for all interactive elements on the page
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### Screenshot
+
+![](/public/browser-extensions-managerui.netlify.app_.png)
+
+### Links
+
+- Live Site URL: [Click here](https://browser-extensions-managerui.netlify.app/)
+
+## My Process
+
+### Built With
+
+- Semantic HTML5 markup
+- CSS custom properties
+- Flexbox
+- CSS Grid
+- [React](https://reactjs.org/) - JS library
+- [TypeScript](https://www.typescriptlang.org/) - For type safety
+- [Vite](https://vitejs.dev/) - Build tool
+- [Tailwind CSS v4](https://tailwindcss.com/) - For styling
+- [React Router](https://reactrouter.com/) - For navigation and URL state management
+
+### What I Learned
+
+This project helped me strengthen several key concepts:
+
+**State Management with URL Parameters**: I used React Router's `useSearchParams` to manage filter states in the URL, making the application shareable and bookmarkable:
+
+```tsx
+const [searchParams] = useSearchParams();
+let activeState = searchParams.get("extensions");
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+**Dark Mode Implementation**: Implemented a persistent dark mode using localStorage and Tailwind's dark mode utilities:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```tsx
+const toggleDarkMode = () => {
+  const toggle = !darkMode;
+  setDarkMode(toggle);
+  localStorage.setItem("darkMode", toggle.toString());
+  document.documentElement.classList.toggle("dark", toggle);
+};
 ```
+
+**Custom Toggle Component**: Built a reusable toggle button component with smooth animations and proper accessibility attributes:
+
+```tsx
+<button
+  role="switch"
+  aria-checked={toggle}
+  className={`relative inline-flex h-[18px] w-[34px] items-center rounded-full
+    transition-colors duration-200 ease-in-out`}
+>
+```
+
+**Dynamic Filtering Logic**: Implemented filtering that maintains original indices when toggling or removing items:
+
+```tsx
+const originalIndex = extensions.findIndex(
+  (ext) => ext.name === extension.name
+);
+```
+
+### Continued Development
+
+In future projects, I want to focus on:
+
+- Implementing drag-and-drop functionality for reordering extensions
+- Adding search functionality to filter extensions by name or description
+- Exploring more advanced state management solutions like Zustand or Redux
+- Improving accessibility with better keyboard navigation
+- Adding animation libraries like Framer Motion for smoother transitions
+
+## Author
+
+- Frontend Mentor - [@subhajitroycode](https://www.frontendmentor.io/profile/subhajitroycode)
+- Twitter - [@subhajitroycode](https://www.twitter.com/subhajitroycode)
+- LinkedIn - [Subhajit Roy](https://www.linkedin.com/in/subhajitroycode)
+- Instagram - [@subhajitroycode](https://www.instagram.com/subhajitroycode)
+- GitHub - [@subhajitroycode](https://www.github.com/subhajitroycode)
