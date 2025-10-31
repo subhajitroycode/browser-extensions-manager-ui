@@ -26,8 +26,10 @@ const Header = () => {
         className="w-44 md:w-32"
       />
       <button
+        type="button"
         onClick={toggleDarkMode}
         className="bg-neutral-100 dark:bg-neutral-700 p-2 rounded-lg cursor-pointer hover:bg-neutral-300 dark:hover:bg-neutral-600 transition focus:outline-2 focus:outline-offset-2 focus:outline-red-400"
+        aria-label={darkMode ? "Switch to light mode" : "Switch to dark mode"}
       >
         {darkMode ? (
           <img src="/icon-sun.svg" alt="icon of sun" className="w-7 md:w-4" />

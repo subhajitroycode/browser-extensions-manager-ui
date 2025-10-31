@@ -18,6 +18,7 @@ const ToggleButton = ({ toggle, onToggle }: ToggleButtonProps) => {
       `}
       role="switch"
       aria-checked={toggle}
+      aria-label={toggle ? "Disable extension" : "Enable extension"}
     >
       <span
         className={`
